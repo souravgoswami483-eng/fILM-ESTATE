@@ -262,28 +262,184 @@ testimonialTrack.addEventListener('touchend', (e) => {
   }
 }, { passive: true });
 
+// ─── FORM VALIDATION HELPERS & SUBMISSION ──────────
+function showError(input, message) {
+  const formGroup = input.closest('.form-group');
+  if (!formGroup) return;
+  formGroup.classList.add('error');
+  let errorEl = formGroup.querySelector('.error-message');
+  if (!errorEl) {
+    errorEl = document.createElement('span');
+    errorEl.className = 'error-message';
+    formGroup.appendChild(errorEl);
+  }
+  errorEl.textContent = message;
+}
+
+function clearError(input) {
+  const formGroup = input.closest('.form-group');
+  if (!formGroup) return;
+  formGroup.classList.remove('error');
+  const errorEl = formGroup.querySelector('.error-message');
+  if (errorEl) {
+    errorEl.textContent = '';
+  }
+}
+
+function validateForm(form) {
+  let isValid = true;
+
+  // 1. Name validation
+  const nameInput = form.querySelector('input[name="fullName"]');
+  if (nameInput) {
+    const value = nameInput.value.trim();
+    if (value === '') {
+      showError(nameInput, 'Name is required');
+      isValid = false;
+    } else if (value.length < 3) {
+      showError(nameInput, 'Name must be at least 3 characters');
+      isValid = false;
+    } else if (!/^[a-zA-Z\s]+$/.test(value)) {
+      showError(nameInput, 'Name should contain only letters and spaces');
+      isValid = false;
+    } else {
+      clearError(nameInput);
+    }
+  }
+
+  // 2. Email validation
+  const emailInput = form.querySelector('input[name="email"]');
+  if (emailInput) {
+    const value = emailInput.value.trim();
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (value === '') {
+      showError(emailInput, 'Email address is required');
+      isValid = false;
+    } else if (!emailRegex.test(value)) {
+      showError(emailInput, 'Please enter a valid email address');
+      isValid = false;
+    } else {
+      clearError(emailInput);
+    }
+  }
+
+  // 3. Phone validation
+  const phoneInput = form.querySelector('input[name="phone"]');
+  if (phoneInput) {
+    const value = phoneInput.value.trim();
+    const phoneRegex = /^\+?[0-9\s-]{10,15}$/;
+    if (value === '') {
+      showError(phoneInput, 'Phone number is required');
+      isValid = false;
+    } else if (!phoneRegex.test(value.replace(/\s+/g, ''))) {
+      showError(phoneInput, 'Please enter a valid phone number (at least 10 digits)');
+      isValid = false;
+    } else {
+      clearError(phoneInput);
+    }
+  }
+
+  // 4. Wedding Date validation
+  const dateInput = form.querySelector('input[name="weddingDate"]');
+  if (dateInput && dateInput.value) {
+    const selectedDate = new Date(dateInput.value);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    if (selectedDate < today) {
+      showError(dateInput, 'Wedding date cannot be in the past');
+      isValid = false;
+    } else {
+      clearError(dateInput);
+    }
+  } else if (dateInput) {
+    clearError(dateInput);
+  }
+
+  return isValid;
+}
+
+function setupRealtimeValidation(form) {
+  form.querySelectorAll('input, select, textarea').forEach(input => {
+    input.addEventListener('input', () => {
+      const formGroup = input.closest('.form-group');
+      if (formGroup && formGroup.classList.contains('error')) {
+        if (input.name === 'fullName') {
+          const val = input.value.trim();
+          if (val.length >= 3 && /^[a-zA-Z\s]+$/.test(val)) clearError(input);
+        } else if (input.name === 'email') {
+          const val = input.value.trim();
+          const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+          if (emailRegex.test(val)) clearError(input);
+        } else if (input.name === 'phone') {
+          const val = input.value.trim().replace(/\s+/g, '');
+          if (/^\+?[0-9\s-]{10,15}$/.test(val)) clearError(input);
+        } else if (input.name === 'weddingDate') {
+          const selectedDate = new Date(input.value);
+          const today = new Date();
+          today.setHours(0, 0, 0, 0);
+          if (selectedDate >= today) clearError(input);
+        }
+      }
+    });
+  });
+}
+
 // ─── CONTACT FORM SUBMISSION ──────────────────────
 const contactForm = document.getElementById('contactForm');
 const formSuccess = document.getElementById('formSuccess');
 
-contactForm.addEventListener('submit', (e) => {
-  e.preventDefault();
+if (contactForm) {
+  setupRealtimeValidation(contactForm);
+  
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
 
-  const btn = document.getElementById('submit-form-btn');
-  const btnText = btn.querySelector('span:first-child');
-  btnText.textContent = 'Sending…';
-  btn.disabled = true;
-  btn.style.opacity = '0.7';
+    if (!validateForm(contactForm)) {
+      return;
+    }
 
-  setTimeout(() => {
-    btnText.textContent = 'Send Enquiry';
-    btn.disabled = false;
-    btn.style.opacity = '';
-    formSuccess.style.display = 'block';
-    contactForm.reset();
-    setTimeout(() => { formSuccess.style.display = 'none'; }, 6000);
-  }, 1800);
-});
+    const btn = document.getElementById('submit-form-btn');
+    const btnText = btn ? btn.querySelector('span:first-child') : null;
+    const originalText = btnText ? btnText.textContent : 'Send Enquiry';
+    
+    if (btnText) btnText.textContent = 'Sending…';
+    if (btn) {
+      btn.disabled = true;
+      btn.style.opacity = '0.7';
+    }
+
+    const formData = new FormData(contactForm);
+    const data = Object.fromEntries(formData);
+    data['_subject'] = 'New Wedding Enquiry — The Film Estate';
+
+    fetch('https://formsubmit.co/ajax/thefilmestates@gmail.com', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(result => {
+      if (btnText) btnText.textContent = originalText;
+      if (btn) {
+        btn.disabled = false;
+        btn.style.opacity = '';
+      }
+      window.location.href = 'thankyou.html';
+    })
+    .catch(error => {
+      console.error('Error submitting form:', error);
+      if (btnText) btnText.textContent = originalText;
+      if (btn) {
+        btn.disabled = false;
+        btn.style.opacity = '';
+      }
+      window.location.href = 'thankyou.html';
+    });
+  });
+}
 
 // ─── SMOOTH ACTIVE NAV LINK HIGHLIGHT ────────────
 const sections = document.querySelectorAll('section[id]');
@@ -570,8 +726,14 @@ document.addEventListener('keydown', (e) => {
 
 // Modal Form Submission Handling
 if (modalContactForm) {
+  setupRealtimeValidation(modalContactForm);
+
   modalContactForm.addEventListener('submit', (e) => {
     e.preventDefault();
+
+    if (!validateForm(modalContactForm)) {
+      return;
+    }
 
     const submitBtn = document.getElementById('modal-submit-btn');
     if (!submitBtn) return;
@@ -582,21 +744,36 @@ if (modalContactForm) {
     submitBtn.disabled = true;
     submitBtn.style.opacity = '0.7';
 
-    // Simulate form submission delay
-    setTimeout(() => {
+    const formData = new FormData(modalContactForm);
+    const data = Object.fromEntries(formData);
+    data['_subject'] = 'New Modal Enquiry — The Film Estate';
+
+    fetch('https://formsubmit.co/ajax/thefilmestates@gmail.com', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(result => {
       if (submitBtnText) submitBtnText.textContent = originalText;
       submitBtn.disabled = false;
       submitBtn.style.opacity = '';
-      if (modalFormSuccess) {
-        modalFormSuccess.style.display = 'block';
-      }
-      modalContactForm.reset();
       
-      // Auto close modal after 3 seconds of showing success message
-      setTimeout(() => {
-        closeEnquiryModal();
-      }, 3000);
-    }, 1800);
+      closeEnquiryModal();
+      window.location.href = 'thankyou.html';
+    })
+    .catch(error => {
+      console.error('Error submitting form:', error);
+      if (submitBtnText) submitBtnText.textContent = originalText;
+      submitBtn.disabled = false;
+      submitBtn.style.opacity = '';
+      
+      closeEnquiryModal();
+      window.location.href = 'thankyou.html';
+    });
   });
 }
 

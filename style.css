@@ -2086,6 +2086,35 @@ ul { list-style: none; }
 
 .form-group textarea { resize: vertical; min-height: 110px; }
 
+/* Validation styles */
+.form-group.error input,
+.form-group.error select,
+.form-group.error textarea {
+  border-color: var(--crimson-light);
+  background: rgba(139, 26, 26, 0.05);
+}
+
+.form-group.error input:focus,
+.form-group.error select:focus,
+.form-group.error textarea:focus {
+  box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.15);
+}
+
+.form-group .error-message {
+  color: var(--crimson-light);
+  font-size: 0.76rem;
+  margin-top: 0.35rem;
+  display: none;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.form-group.error .error-message {
+  display: block;
+  animation: fadeInUp 0.3s ease;
+}
+
+
 .form-success {
   display: none;
   margin-top: 1.4rem;
