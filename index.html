@@ -213,25 +213,25 @@
     </div>
     <div class="gallery-masonry">
       <div class="gallery-item tall reveal-up" id="gal-1">
-        <img src="images/couple3.jpg" alt="Bengali bride and groom at traditional mandap" loading="lazy" />
+        <img src="images/gallery.jpg" alt="Bengali bride and groom at traditional mandap" loading="lazy" />
         <div class="gallery-overlay">
           <span>Traditional Ceremony</span>
         </div>
       </div>
       <div class="gallery-item reveal-up" id="gal-2" style="transition-delay:0.1s">
-        <img src="images/couple1.jpg" alt="Couple in Bengali traditional attire" loading="lazy" />
+        <img src="images/gallery2.jpg" alt="Couple in Bengali traditional attire" loading="lazy" />
         <div class="gallery-overlay">
           <span>Pre-Wedding Shoot</span>
         </div>
       </div>
       <div class="gallery-item reveal-up" id="gal-3" style="transition-delay:0.2s">
-        <img src="images/bride1.jpg" alt="Bengali bride in red saree" loading="lazy" />
+        <img src="images/gallery34.jpg" alt="Bengali bride in red saree" loading="lazy" />
         <div class="gallery-overlay">
           <span>Bridal Portraits</span>
         </div>
       </div>
       <div class="gallery-item tall reveal-up" id="gal-4" style="transition-delay:0.15s">
-        <img src="images/couple2.jpg" alt="Couple walking at temple background" loading="lazy" />
+        <img src="images/gallery4.jpg" alt="Couple walking at temple background" loading="lazy" />
         <div class="gallery-overlay">
           <span>Temple Shoot</span>
         </div>
@@ -304,7 +304,7 @@
                 <div class="pkg-price-btn single"><span class="pkg-price-label">Single Side</span><span class="pkg-price-amount">&#8377;75,999</span></div>
                 <div class="pkg-price-btn both"><span class="pkg-price-label">Both Side</span><span class="pkg-price-amount">&#8377;99,999</span></div>
               </div>
-              <a href="#contact" class="btn btn-gold pkg-book-btn" id="pkg-basic-book-btn"><span>Book This Package</span><span class="btn-shimmer"></span></a>
+              <a href="#contact" class="btn btn-gold pkg-book-btn" id="pkg-basic-book-btn" data-pkg="basic"><span>Book This Package</span><span class="btn-shimmer"></span></a>
             </div>
             <div class="pkg-panel-images">
               <div class="pkg-img-main"><img src="images/couple1.jpg" alt="Basic Package" loading="lazy" /></div>
@@ -338,11 +338,11 @@
                 <div class="pkg-price-btn single"><span class="pkg-price-label">Single Side</span><span class="pkg-price-amount">&#8377;95,999</span></div>
                 <div class="pkg-price-btn both"><span class="pkg-price-label">Both Side</span><span class="pkg-price-amount">&#8377;1,25,000</span></div>
               </div>
-              <a href="#contact" class="btn btn-gold pkg-book-btn" id="pkg-gold-book-btn"><span>Book This Package</span><span class="btn-shimmer"></span></a>
+              <a href="#contact" class="btn btn-gold pkg-book-btn" id="pkg-gold-book-btn" data-pkg="gold"><span>Book This Package</span><span class="btn-shimmer"></span></a>
             </div>
             <div class="pkg-panel-images">
               <div class="pkg-img-main"><img src="images/couple2.jpg" alt="Gold Package" loading="lazy" /></div>
-              <div class="pkg-img-secondary"><img src="images/bride1.jpg" alt="Bridal" loading="lazy" /></div>
+              <div class="pkg-img-secondary"><img src="images/about-us.jpg" alt="Bridal" loading="lazy" /></div>
             </div>
           </div>
         </div>
@@ -373,7 +373,7 @@
                 <div class="pkg-price-btn single"><span class="pkg-price-label">Single Side</span><span class="pkg-price-amount">&#8377;1,35,000</span></div>
                 <div class="pkg-price-btn both"><span class="pkg-price-label">Both Side</span><span class="pkg-price-amount">&#8377;1,75,000</span></div>
               </div>
-              <a href="#contact" class="btn btn-gold pkg-book-btn" id="pkg-premium-book-btn"><span>Book This Package</span><span class="btn-shimmer"></span></a>
+              <a href="#contact" class="btn btn-gold pkg-book-btn" id="pkg-premium-book-btn" data-pkg="premium"><span>Book This Package</span><span class="btn-shimmer"></span></a>
             </div>
             <div class="pkg-panel-images">
               <div class="pkg-img-main"><img src="images/bride2.jpg" alt="Premium Package" loading="lazy" /></div>
@@ -407,7 +407,7 @@
                 <div class="pkg-price-btn single"><span class="pkg-price-label">Single Side</span><span class="pkg-price-amount">&#8377;1,85,000</span></div>
                 <div class="pkg-price-btn both"><span class="pkg-price-label">Both Side</span><span class="pkg-price-amount">&#8377;2,65,000</span></div>
               </div>
-              <a href="#contact" class="btn btn-gold pkg-book-btn" id="pkg-unique-book-btn"><span>Book This Package</span><span class="btn-shimmer"></span></a>
+              <a href="#contact" class="btn btn-gold pkg-book-btn" id="pkg-unique-book-btn" data-pkg="unique"><span>Book This Package</span><span class="btn-shimmer"></span></a>
             </div>
             <div class="pkg-panel-images">
               <div class="pkg-img-main"><img src="images/couple2.jpg" alt="Be Unique" loading="lazy" /></div>
@@ -429,7 +429,7 @@
                 <div class="pkg-other-row"><span>Pre wedding <small>(2 Day)</small></span><span>&#8377;45,000</span></div>
                 <div class="pkg-other-row"><span>Pre wedding <small>(3 Day)</small></span><span>&#8377;99,000</span></div>
               </div>
-              <a href="#contact" class="btn btn-gold pkg-book-btn" id="pkg-other-book-btn" style="margin-top:2.5rem"><span>Enquire Now</span><span class="btn-shimmer"></span></a>
+              <a href="#contact" class="btn btn-gold pkg-book-btn" id="pkg-other-book-btn" data-pkg="other" style="margin-top:2.5rem"><span>Enquire Now</span><span class="btn-shimmer"></span></a>
             </div>
             <div class="pkg-panel-images pkg-other-images">
               <div class="pkg-img-main"><img src="images/couple3.jpg" alt="Pre-wedding destination shoot" loading="lazy" /></div>
@@ -623,9 +623,11 @@
               <label for="package-select">Interested Package</label>
               <select id="package-select" name="package">
                 <option value="">Select a package…</option>
-                <option value="silver">Shubho Aranyo (₹1,50,000+)</option>
-                <option value="gold">Ananda Utsav (₹3,50,000+)</option>
-                <option value="platinum">Rajkeeya Biye (₹7,00,000+)</option>
+                <option value="basic">Basic Package (₹75,999+)</option>
+                <option value="gold">Gold Package (₹95,999+)</option>
+                <option value="premium">Premium Package (₹1,35,000+)</option>
+                <option value="unique">Be Unique Package (₹1,85,000+)</option>
+                <option value="other">Other / Pre-wedding / Destination</option>
                 <option value="custom">Custom Package</option>
               </select>
             </div>
@@ -677,12 +679,12 @@
             </ul>
           </div>
           <div class="footer-links-col">
-            <h4>Bengali Packages</h4>
+            <h4>Our Packages</h4>
             <ul>
-              <li><a href="#packages">শুভ অরণ্য Package</a></li>
-              <li><a href="#packages">আনন্দ উৎসব Package</a></li>
-              <li><a href="#packages">রাজকীয় বিয়ে Package</a></li>
-              <li><a href="#contact">Custom Package</a></li>
+              <li><a href="#packages" class="footer-pkg-link" data-pkg="basic">Basic Package</a></li>
+              <li><a href="#packages" class="footer-pkg-link" data-pkg="gold">Gold Package</a></li>
+              <li><a href="#packages" class="footer-pkg-link" data-pkg="premium">Premium Package</a></li>
+              <li><a href="#packages" class="footer-pkg-link" data-pkg="unique">Be Unique Package</a></li>
             </ul>
           </div>
           <div class="footer-links-col">
@@ -706,6 +708,68 @@
       </div>
     </div>
   </footer>
+
+  <!-- ===================== POPUP ENQUIRY MODAL ===================== -->
+  <div class="modal-overlay" id="enquiryModal">
+    <div class="modal-box">
+      <button class="modal-close" id="modalCloseBtn" aria-label="Close modal">&times;</button>
+      <div class="modal-header">
+        <h3>Plan Your Dream Wedding</h3>
+        <p class="form-tagline">We will custom-craft a celebration as unique as your story</p>
+      </div>
+      <form class="contact-form modal-form" id="modalContactForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="modal-bride-name">Bride's Name</label>
+            <input type="text" id="modal-bride-name" name="brideName" placeholder="Enter bride's name" required />
+          </div>
+          <div class="form-group">
+            <label for="modal-groom-name">Groom's Name</label>
+            <input type="text" id="modal-groom-name" name="groomName" placeholder="Enter groom's name" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="modal-email">Email Address</label>
+            <input type="email" id="modal-email" name="email" placeholder="your@email.com" required />
+          </div>
+          <div class="form-group">
+            <label for="modal-phone">Phone Number</label>
+            <input type="tel" id="modal-phone" name="phone" placeholder="+91 00000 00000" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="modal-wedding-date">Wedding Date</label>
+            <input type="date" id="modal-wedding-date" name="weddingDate" />
+          </div>
+          <div class="form-group">
+            <label for="modal-package-select">Interested Package</label>
+            <select id="modal-package-select" name="package">
+              <option value="">Select a package…</option>
+              <option value="basic">Basic Package (₹75,999+)</option>
+              <option value="gold">Gold Package (₹95,999+)</option>
+              <option value="premium">Premium Package (₹1,35,000+)</option>
+              <option value="unique">Be Unique Package (₹1,85,000+)</option>
+              <option value="other">Other / Pre-wedding / Destination</option>
+              <option value="custom">Custom Package</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="modal-message">Tell Us About Your Dream Wedding</label>
+          <textarea id="modal-message" name="message" rows="3" placeholder="Share your vision, theme, guest count, venue ideas…"></textarea>
+        </div>
+        <button type="submit" class="btn btn-gold btn-full" id="modal-submit-btn">
+          <span>Send Enquiry</span>
+          <span class="btn-shimmer"></span>
+        </button>
+        <div class="form-success" id="modalFormSuccess">
+          🎊 Thank you! We'll get back to you within 24 hours!
+        </div>
+      </form>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>

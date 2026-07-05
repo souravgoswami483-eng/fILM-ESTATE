@@ -487,3 +487,133 @@ if (otherPanel) {
     row.style.animationDelay = `${i * 0.08}s`;
   });
 }
+
+// ─── POPUP ENQUIRY MODAL LOGIC ───────────────────
+const enquiryModal = document.getElementById('enquiryModal');
+const modalCloseBtn = document.getElementById('modalCloseBtn');
+const modalContactForm = document.getElementById('modalContactForm');
+const modalFormSuccess = document.getElementById('modalFormSuccess');
+const modalPackageSelect = document.getElementById('modal-package-select');
+
+// Open Modal function
+function openEnquiryModal(preselectedPkg = '') {
+  if (!enquiryModal) return;
+  enquiryModal.classList.add('active');
+  document.body.classList.add('modal-open');
+  
+  if (preselectedPkg && modalPackageSelect) {
+    modalPackageSelect.value = preselectedPkg;
+  } else if (modalPackageSelect) {
+    modalPackageSelect.value = ''; // Reset to default
+  }
+}
+
+// Close Modal function
+function closeEnquiryModal() {
+  if (!enquiryModal) return;
+  enquiryModal.classList.remove('active');
+  document.body.classList.remove('modal-open');
+  if (modalFormSuccess) {
+    modalFormSuccess.style.display = 'none';
+  }
+}
+
+// Connect CTA triggers
+// 1. Header CTA
+const headerCta = document.querySelector('.nav-cta-link');
+if (headerCta) {
+  headerCta.addEventListener('click', (e) => {
+    e.preventDefault();
+    openEnquiryModal();
+  });
+}
+
+// 2. About CTA
+const aboutCta = document.getElementById('about-contact-btn');
+if (aboutCta) {
+  aboutCta.addEventListener('click', (e) => {
+    e.preventDefault();
+    openEnquiryModal();
+  });
+}
+
+// 3. Package booking buttons
+const bookBtns = document.querySelectorAll('.pkg-book-btn');
+bookBtns.forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const pkgType = btn.getAttribute('data-pkg');
+    openEnquiryModal(pkgType);
+  });
+});
+
+// Close event listeners
+if (modalCloseBtn) {
+  modalCloseBtn.addEventListener('click', closeEnquiryModal);
+}
+
+// Close on clicking modal backdrop/overlay
+if (enquiryModal) {
+  enquiryModal.addEventListener('click', (e) => {
+    if (e.target === enquiryModal) {
+      closeEnquiryModal();
+    }
+  });
+}
+
+// Close on Escape key press
+document.addEventListener('keydown', (e) => {
+  if (enquiryModal && e.key === 'Escape' && enquiryModal.classList.contains('active')) {
+    closeEnquiryModal();
+  }
+});
+
+// Modal Form Submission Handling
+if (modalContactForm) {
+  modalContactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const submitBtn = document.getElementById('modal-submit-btn');
+    if (!submitBtn) return;
+    const submitBtnText = submitBtn.querySelector('span:first-child');
+    const originalText = submitBtnText ? submitBtnText.textContent : 'Send Enquiry';
+    
+    if (submitBtnText) submitBtnText.textContent = 'Sending…';
+    submitBtn.disabled = true;
+    submitBtn.style.opacity = '0.7';
+
+    // Simulate form submission delay
+    setTimeout(() => {
+      if (submitBtnText) submitBtnText.textContent = originalText;
+      submitBtn.disabled = false;
+      submitBtn.style.opacity = '';
+      if (modalFormSuccess) {
+        modalFormSuccess.style.display = 'block';
+      }
+      modalContactForm.reset();
+      
+      // Auto close modal after 3 seconds of showing success message
+      setTimeout(() => {
+        closeEnquiryModal();
+      }, 3000);
+    }, 1800);
+  });
+}
+
+// Footer packages links integration
+document.querySelectorAll('.footer-pkg-link').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const pkgType = link.getAttribute('data-pkg');
+    const matchingTab = document.querySelector(`.pkg-tab[data-pkg="${pkgType}"]`);
+    if (matchingTab) {
+      matchingTab.click();
+      const target = document.getElementById('packages');
+      if (target) {
+        const navHeight = navbar.offsetHeight;
+        const targetPos = target.getBoundingClientRect().top + window.scrollY - navHeight;
+        window.scrollTo({ top: targetPos, behavior: 'smooth' });
+      }
+    }
+  });
+});
