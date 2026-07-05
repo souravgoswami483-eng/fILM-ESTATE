@@ -410,3 +410,80 @@ if (footerYear) {
     `© ${new Date().getFullYear()}`
   );
 }
+
+// ─── PACKAGE TABS ──────────────────────────────────
+const pkgTabs = document.querySelectorAll('.pkg-tab');
+const pkgPanels = document.querySelectorAll('.pkg-panel');
+
+pkgTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    const target = tab.getAttribute('data-pkg');
+
+    // Remove active from all tabs and panels
+    pkgTabs.forEach(t => t.classList.remove('active'));
+    pkgPanels.forEach(p => p.classList.remove('active'));
+
+    // Activate clicked tab and matching panel
+    tab.classList.add('active');
+    const targetPanel = document.getElementById('panel-' + target);
+    if (targetPanel) {
+      targetPanel.classList.add('active');
+      // Trigger list item stagger animation
+      const listItems = targetPanel.querySelectorAll('.pkg-deliverables-col li, .pkg-other-row');
+      listItems.forEach((li, i) => {
+        li.style.opacity = '0';
+        li.style.transform = 'translateX(-12px)';
+        li.style.transition = `opacity 0.4s ease ${i * 0.07}s, transform 0.4s ease ${i * 0.07}s`;
+        // Force reflow
+        void li.offsetWidth;
+        li.style.opacity = '1';
+        li.style.transform = 'translateX(0)';
+      });
+    }
+  });
+});
+
+// ─── PRICE BUTTON CLICK HIGHLIGHT ────────────────
+document.querySelectorAll('.pkg-pricing-row').forEach(row => {
+  const btns = row.querySelectorAll('.pkg-price-btn');
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btns.forEach(b => b.classList.remove('active-price'));
+      btn.classList.add('active-price');
+    });
+  });
+});
+
+// ─── KEYBOARD NAV FOR TABS ───────────────────────
+const tabsContainer = document.getElementById('pkgTabs');
+if (tabsContainer) {
+  tabsContainer.addEventListener('keydown', (e) => {
+    const current = tabsContainer.querySelector('.pkg-tab.active');
+    const allTabs = [...tabsContainer.querySelectorAll('.pkg-tab')];
+    const idx = allTabs.indexOf(current);
+
+    if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      const next = allTabs[(idx + 1) % allTabs.length];
+      next.click();
+      next.focus();
+    } else if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      const prev = allTabs[(idx - 1 + allTabs.length) % allTabs.length];
+      prev.click();
+      prev.focus();
+    }
+  });
+
+  // Make tabs focusable
+  pkgTabs.forEach(tab => tab.setAttribute('tabindex', '0'));
+}
+
+// ─── OTHER PACKAGE ROW HOVER STAGGER ────────────
+const otherPanel = document.getElementById('panel-other');
+if (otherPanel) {
+  const rows = otherPanel.querySelectorAll('.pkg-other-row');
+  rows.forEach((row, i) => {
+    row.style.animationDelay = `${i * 0.08}s`;
+  });
+}
