@@ -8,11 +8,16 @@
 
 // ─── PRELOADER ────────────────────────────────────
 const preloader = document.getElementById('preloader');
+const preloaderStartTime = performance.now();
 
 window.addEventListener('load', () => {
+  const elapsed = performance.now() - preloaderStartTime;
+  // Ensure preloader is shown for at least 800ms to show the smooth fade-in, 
+  // but if the page took longer to load, hide it almost immediately.
+  const remainingTime = Math.max(0, 800 - elapsed);
   setTimeout(() => {
     preloader.classList.add('hidden');
-  }, 1800);
+  }, remainingTime);
 });
 
 // ─── CUSTOM CURSOR ───────────────────────────────
