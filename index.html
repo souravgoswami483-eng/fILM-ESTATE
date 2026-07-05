@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Film Estate — Luxury Bengali Wedding &amp; Event Management</title>
+  <meta name="description" content="The Film Estate is a premier event management company specialising in authentic Bengali weddings and luxury celebrations. Explore our Bengali wedding packages and make your day unforgettable." />
+  <meta name="keywords" content="Bengali wedding, Bengali wedding planner, Kolkata wedding, luxury event management, Gaye Holud, Biye, wedding photography" />
+  <meta property="og:title" content="The Film Estate — Luxury Bengali Wedding &amp; Event Management" />
+  <meta property="og:description" content="Premier Bengali wedding management — where love stories become timeless films." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600&family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===================== CUSTOM CURSOR ===================== -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- ===================== PRELOADER ===================== -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-logo">The Film Estate</div>
+    <div class="preloader-bar"></div>
+  </div>
+
+  <!-- ===================== NAVIGATION ===================== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">
+        <span class="logo-icon">🎬</span>
+        <div class="logo-text">
+          <span class="logo-main">The Film Estate</span>
+          <span class="logo-sub">Event Management</span>
+        </div>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#gallery" class="nav-link">Gallery</a></li>
+        <li><a href="#packages" class="nav-link">Packages</a></li>
+        <li><a href="#testimonials" class="nav-link">Stories</a></li>
+        <li><a href="#contact" class="nav-link nav-cta-link">Contact Us</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO SECTION ===================== -->
+  <section class="hero" id="hero">
+    <!-- Floating Particles -->
+    <div class="particles-container" id="particlesContainer"></div>
+
+    <div class="hero-slider">
+      <div class="hero-slide active" style="background-image: url('images/couple3.jpg')"></div>
+      <div class="hero-slide" style="background-image: url('images/couple2.jpg')"></div>
+      <div class="hero-slide" style="background-image: url('images/bride1.jpg')"></div>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-tagline">Crafting Timeless Memories</p>
+      <h1 class="hero-title">Where Every Love<br/><em>Story Blooms</em></h1>
+      <p class="hero-subtitle">Premium Bengali Wedding &amp; Event Management<br/>Celebrating the richness of Bengali tradition with modern luxury</p>
+      <div class="hero-btns">
+        <a href="#packages" class="btn btn-gold" id="hero-explore-btn">
+          <span>Explore Packages</span>
+          <span class="btn-shimmer"></span>
+        </a>
+        <a href="#gallery" class="btn btn-outline" id="hero-gallery-btn">
+          <span>View Gallery</span>
+          <span class="btn-shimmer"></span>
+        </a>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+    <div class="hero-dots">
+      <button class="dot active" id="dot-0" aria-label="Slide 1"></button>
+      <button class="dot" id="dot-1" aria-label="Slide 2"></button>
+      <button class="dot" id="dot-2" aria-label="Slide 3"></button>
+    </div>
+  </section>
+
+  <!-- ===================== STATS RIBBON ===================== -->
+  <section class="stats-ribbon">
+    <div class="stat-item">
+      <div class="stat-number-wrap">
+        <span class="stat-number" data-target="500">0</span><span class="stat-suffix">+</span>
+      </div>
+      <span class="stat-label">Weddings Curated</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-number-wrap">
+        <span class="stat-number" data-target="12">0</span><span class="stat-suffix">+</span>
+      </div>
+      <span class="stat-label">Years of Excellence</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-number-wrap">
+        <span class="stat-number" data-target="98">0</span><span class="stat-suffix">%</span>
+      </div>
+      <span class="stat-label">Happy Families</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-number-wrap">
+        <span class="stat-number" data-target="50">0</span><span class="stat-suffix">+</span>
+      </div>
+      <span class="stat-label">Award-Winning Events</span>
+    </div>
+  </section>
+
+  <!-- ===================== ABOUT SECTION ===================== -->
+  <section class="about-section" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-images">
+          <div class="about-img-main reveal-left">
+            <img src="images/couple1.jpg" alt="Beautiful Bengali couple in traditional attire" loading="lazy" />
+          </div>
+          <div class="about-img-secondary reveal-left" style="transition-delay:0.25s">
+            <img src="images/bride2.jpg" alt="Bride in traditional Bengali wedding" loading="lazy" />
+          </div>
+          <div class="about-badge">
+            <span class="badge-number">12</span>
+            <span class="badge-text">Years of<br/>Excellence</span>
+          </div>
+        </div>
+        <div class="about-content reveal-right">
+          <p class="section-eyebrow">Our Story</p>
+          <h2 class="section-title">Celebrating Bengali<br/><em>Traditions with Elegance</em></h2>
+          <div class="ornament" style="justify-content:flex-start; margin: 1.5rem 0;">
+            <div class="ornament-line"></div>
+            <div class="ornament-diamond"></div>
+            <div class="ornament-line right"></div>
+          </div>
+          <p class="about-desc">At <strong>The Film Estate</strong>, we believe every wedding is a cinematic masterpiece waiting to unfold. Born from a deep reverence for Bengali culture and an eye for modern luxury, we transform your most cherished moments into eternal memories.</p>
+          <p class="about-desc">From the sacred <em>Shubho Drishti</em> to the joyous <em>Bou Bhaat</em>, every ritual is orchestrated with impeccable precision, heartfelt care, and artistic brilliance.</p>
+          <div class="about-features">
+            <div class="feature-pill">🌸 Authentic Bengali Rituals</div>
+            <div class="feature-pill">🎭 Cinematic Storytelling</div>
+            <div class="feature-pill">💎 Luxury Décor</div>
+            <div class="feature-pill">📸 Premium Photography</div>
+          </div>
+          <a href="#contact" class="btn btn-gold" id="about-contact-btn">
+            <span>Start Your Journey</span>
+            <span class="btn-shimmer"></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SERVICES SECTION ===================== -->
+  <section class="services-section" id="services">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">What We Offer</p>
+        <h2 class="section-title">Our <em>Signature Services</em></h2>
+        <p class="section-desc">Every detail, every petal, every moment — crafted to perfection for your royal celebration</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal-up" id="svc-wedding">
+          <div class="service-icon">💍</div>
+          <h3>Wedding Planning</h3>
+          <p>Full-service Bengali wedding management from pre-wedding rituals to reception, ensuring every tradition is honoured beautifully.</p>
+          <span class="service-tag">Most Popular</span>
+        </div>
+        <div class="service-card reveal-up" id="svc-decor" style="transition-delay:0.1s">
+          <div class="service-icon">🌺</div>
+          <h3>Luxury Décor</h3>
+          <p>Breathtaking floral installations, traditional mandap setups, and modern aesthetic blends that create a visual spectacle.</p>
+        </div>
+        <div class="service-card reveal-up" id="svc-photo" style="transition-delay:0.2s">
+          <div class="service-icon">📸</div>
+          <h3>Photography &amp; Film</h3>
+          <p>Cinematic wedding films and editorial-style photography that capture the raw emotion and grandeur of your Bengali celebration.</p>
+        </div>
+        <div class="service-card reveal-up" id="svc-catering" style="transition-delay:0.3s">
+          <div class="service-icon">🍛</div>
+          <h3>Bengali Catering</h3>
+          <p>Authentic multi-course Bengali cuisine — from Ilish Paturi to Mishti Doi — curated by expert chefs for your feast.</p>
+        </div>
+        <div class="service-card reveal-up" id="svc-music" style="transition-delay:0.4s">
+          <div class="service-icon">🎶</div>
+          <h3>Entertainment</h3>
+          <p>Live Baul singers, classical Rabindra Sangeet, DJ nights, and traditional dhol performances to set the perfect mood.</p>
+        </div>
+        <div class="service-card reveal-up" id="svc-bride" style="transition-delay:0.5s">
+          <div class="service-icon">👰</div>
+          <h3>Bridal Styling</h3>
+          <p>Expert bridal makeup, traditional Bengali jewellery curation, Banarasi saree selection, and complete bridal makeover.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== GALLERY SECTION ===================== -->
+  <section class="gallery-section" id="gallery">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Our Work</p>
+        <h2 class="section-title">Moments We've <em>Made Immortal</em></h2>
+        <p class="section-desc">A glimpse into the beautiful stories we've had the honour of telling</p>
+      </div>
+    </div>
+    <div class="gallery-masonry">
+      <div class="gallery-item tall reveal-up" id="gal-1">
+        <img src="images/couple3.jpg" alt="Bengali bride and groom at traditional mandap" loading="lazy" />
+        <div class="gallery-overlay">
+          <span>Traditional Ceremony</span>
+        </div>
+      </div>
+      <div class="gallery-item reveal-up" id="gal-2" style="transition-delay:0.1s">
+        <img src="images/couple1.jpg" alt="Couple in Bengali traditional attire" loading="lazy" />
+        <div class="gallery-overlay">
+          <span>Pre-Wedding Shoot</span>
+        </div>
+      </div>
+      <div class="gallery-item reveal-up" id="gal-3" style="transition-delay:0.2s">
+        <img src="images/bride1.jpg" alt="Bengali bride in red saree" loading="lazy" />
+        <div class="gallery-overlay">
+          <span>Bridal Portraits</span>
+        </div>
+      </div>
+      <div class="gallery-item tall reveal-up" id="gal-4" style="transition-delay:0.15s">
+        <img src="images/couple2.jpg" alt="Couple walking at temple background" loading="lazy" />
+        <div class="gallery-overlay">
+          <span>Temple Shoot</span>
+        </div>
+      </div>
+      <div class="gallery-item wide reveal-up" id="gal-5" style="transition-delay:0.3s">
+        <img src="images/bride2.jpg" alt="Bride with banana leaves at reception" loading="lazy" />
+        <div class="gallery-overlay">
+          <span>Bou Baran Ritual</span>
+        </div>
+      </div>
+      <div class="gallery-item reveal-up" id="gal-6" style="transition-delay:0.35s">
+        <img src="images/decor.png" alt="Bengali wedding decoration" loading="lazy" />
+        <div class="gallery-overlay">
+          <span>Mandap Décor</span>
+        </div>
+      </div>
+      <div class="gallery-item reveal-up" id="gal-7" style="transition-delay:0.4s">
+        <img src="images/reception.png" alt="Luxury reception hall" loading="lazy" />
+        <div class="gallery-overlay">
+          <span>Reception Hall</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PACKAGES SECTION ===================== -->
+  <section class="packages-section" id="packages">
+    <div class="packages-bg-overlay"></div>
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Bengali Wedding Packages</p>
+        <h2 class="section-title">Choose Your <em>Dream Package</em></h2>
+        <p class="section-desc">Tailored Bengali wedding packages to honour every ritual with grandeur and grace</p>
+      </div>
+
+      <div class="packages-grid">
+
+        <!-- PACKAGE 1: SILVER -->
+        <div class="package-card reveal-up" id="pkg-silver">
+          <div class="package-header">
+            <div class="package-icon">🌸</div>
+            <div class="package-tag">Starter</div>
+            <h3 class="package-name">Shubho Aranyo</h3>
+            <p class="package-name-bengali">শুভ অরণ্য</p>
+            <div class="package-price">
+              <span class="price-currency">₹</span>
+              <span class="price-amount">1,50,000</span>
+              <span class="price-onwards">onwards</span>
+            </div>
+          </div>
+          <div class="package-body">
+            <p class="package-subtitle">Perfect for intimate Bengali celebrations</p>
+            <ul class="package-features" id="pkg-silver-features">
+              <li>✓ আশীর্বাদ (Ashirbad) Ceremony Setup</li>
+              <li>✓ গায়ে হলুদ (Gaye Holud) Décor</li>
+              <li>✓ বিবাহ (Biye) Day Management</li>
+              <li>✓ Traditional Mandap with Flowers</li>
+              <li>✓ Bridal Makeup (1 session)</li>
+              <li>✓ Photography — 1 Day Coverage</li>
+              <li>✓ Bengali Catering (up to 150 guests)</li>
+              <li>✓ Dhol &amp; Shehnai Music</li>
+              <li>✗ Videography</li>
+              <li>✗ Pre-Wedding Shoot</li>
+              <li>✗ Reception Package</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline-gold btn-full" id="pkg-silver-btn">
+              <span>Book This Package</span>
+              <span class="btn-shimmer"></span>
+            </a>
+          </div>
+        </div>
+
+        <!-- PACKAGE 2: GOLD (FEATURED) -->
+        <div class="package-card featured reveal-up" id="pkg-gold" style="transition-delay:0.15s">
+          <div class="package-badge-top">⭐ Most Popular</div>
+          <div class="package-header">
+            <div class="package-icon">💛</div>
+            <div class="package-tag">Signature</div>
+            <h3 class="package-name">Ananda Utsav</h3>
+            <p class="package-name-bengali">আনন্দ উৎসব</p>
+            <div class="package-price">
+              <span class="price-currency">₹</span>
+              <span class="price-amount">3,50,000</span>
+              <span class="price-onwards">onwards</span>
+            </div>
+          </div>
+          <div class="package-body">
+            <p class="package-subtitle">Our most beloved Bengali wedding experience</p>
+            <ul class="package-features" id="pkg-gold-features">
+              <li>✓ আশীর্বাদ (Ashirbad) Ceremony</li>
+              <li>✓ গায়ে হলুদ (Gaye Holud) Full Décor</li>
+              <li>✓ বিয়ে (Biye) Day Full Management</li>
+              <li>✓ বৌ ভাত (Bou Bhaat) Reception</li>
+              <li>✓ Luxury Mandap — Floral + Draped</li>
+              <li>✓ Bridal Makeup (All 3 Days)</li>
+              <li>✓ Cinematic Videography</li>
+              <li>✓ Photography — 3 Day Coverage</li>
+              <li>✓ Bengali Feast (up to 300 guests)</li>
+              <li>✓ Dhol, Baul &amp; Live Music</li>
+              <li>✓ Pre-Wedding Shoot (1 day)</li>
+              <li>✗ Destination Package</li>
+            </ul>
+            <a href="#contact" class="btn btn-gold btn-full" id="pkg-gold-btn">
+              <span>Book This Package</span>
+              <span class="btn-shimmer"></span>
+            </a>
+          </div>
+        </div>
+
+        <!-- PACKAGE 3: PLATINUM -->
+        <div class="package-card reveal-up" id="pkg-platinum" style="transition-delay:0.3s">
+          <div class="package-header">
+            <div class="package-icon">👑</div>
+            <div class="package-tag">Royal</div>
+            <h3 class="package-name">Rajkeeya Biye</h3>
+            <p class="package-name-bengali">রাজকীয় বিয়ে</p>
+            <div class="package-price">
+              <span class="price-currency">₹</span>
+              <span class="price-amount">7,00,000</span>
+              <span class="price-onwards">onwards</span>
+            </div>
+          </div>
+          <div class="package-body">
+            <p class="package-subtitle">The ultimate royal Bengali wedding experience</p>
+            <ul class="package-features" id="pkg-platinum-features">
+              <li>✓ All Events — 5 Day Coverage</li>
+              <li>✓ গায়ে হলুদ Grand Celebration</li>
+              <li>✓ শুভদৃষ্টি (Shubho Drishti) Ritual Setup</li>
+              <li>✓ সপ্তপদী (Saptapadi) Sacred Setup</li>
+              <li>✓ Destination Venue Coordination</li>
+              <li>✓ Luxury Mandap — Gold &amp; Crystal</li>
+              <li>✓ 5-Star Bengali Bridal Styling</li>
+              <li>✓ Cinematic 4K Film Production</li>
+              <li>✓ Drone Photography &amp; Videography</li>
+              <li>✓ Bengali Royal Feast (500+ guests)</li>
+              <li>✓ Live Orchestra &amp; Dhak Performance</li>
+              <li>✓ Pre-Wedding Film (Full Day Shoot)</li>
+              <li>✓ Honeymoon Planning Assistance</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline-gold btn-full" id="pkg-platinum-btn">
+              <span>Book This Package</span>
+              <span class="btn-shimmer"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- On Bengali Packages Note -->
+      <div class="packages-note reveal-up">
+        <div class="note-icon">🙏</div>
+        <div class="note-content">
+          <h4>On Bengali Wedding Packages</h4>
+          <p>Our Bengali wedding packages are thoughtfully designed to honour every sacred ritual — from the <strong>Ashirbad</strong> and <strong>Gaye Holud</strong> to the <strong>Shubho Drishti</strong>, <strong>Mala Badal</strong>, <strong>Saptapadi</strong>, and <strong>Bou Bhat</strong>. We combine the warmth of Bengali customs with premium modern aesthetics, ensuring your celebration is both deeply traditional and visually spectacular. All packages can be fully customised to your vision, venue, and guest count.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROCESS SECTION ===================== -->
+  <section class="process-section" id="process">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">How It Works</p>
+        <h2 class="section-title">Your Journey with <em>The Film Estate</em></h2>
+      </div>
+      <div class="process-steps">
+        <div class="process-step reveal-up" id="step-1">
+          <div class="step-number">01</div>
+          <div class="step-content">
+            <h3>Consultation</h3>
+            <p>Share your dream. We listen, understand, and craft a personalised vision board for your Bengali wedding.</p>
+          </div>
+        </div>
+        <div class="process-connector"></div>
+        <div class="process-step reveal-up" id="step-2" style="transition-delay:0.1s">
+          <div class="step-number">02</div>
+          <div class="step-content">
+            <h3>Planning</h3>
+            <p>Our experts create a detailed roadmap covering every ritual, vendor, and timeline with flawless precision.</p>
+          </div>
+        </div>
+        <div class="process-connector"></div>
+        <div class="process-step reveal-up" id="step-3" style="transition-delay:0.2s">
+          <div class="step-number">03</div>
+          <div class="step-content">
+            <h3>Execution</h3>
+            <p>We bring your dream to life — coordinating every vendor, managing every detail with calm expertise.</p>
+          </div>
+        </div>
+        <div class="process-connector"></div>
+        <div class="process-step reveal-up" id="step-4" style="transition-delay:0.3s">
+          <div class="step-number">04</div>
+          <div class="step-content">
+            <h3>Cherish Forever</h3>
+            <p>Relive your magical day through our cinematic films and photographs delivered as timeless keepsakes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TESTIMONIALS ===================== -->
+  <section class="testimonials-section" id="testimonials">
+    <div class="testimonials-bg"></div>
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Love Stories</p>
+        <h2 class="section-title">What Families <em>Say About Us</em></h2>
+      </div>
+      <div class="testimonials-slider">
+        <div class="testimonial-track" id="testimonialTrack">
+          <div class="testimonial-card" id="testi-1">
+            <div class="testi-quote">"</div>
+            <p class="testi-text">The Film Estate turned our Bengali wedding into a fairy tale. Every ritual — from the Gaye Holud to the Bou Bhat — was executed with such love and perfection. We are forever grateful!</p>
+            <div class="testi-author">
+              <div class="testi-avatar">S</div>
+              <div>
+                <strong>Sunanda &amp; Arjun Chakraborty</strong>
+                <span>Kolkata, 2024</span>
+              </div>
+            </div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+          <div class="testimonial-card" id="testi-2">
+            <div class="testi-quote">"</div>
+            <p class="testi-text">I was blown away by how they understood our Bengali traditions. The Shubho Drishti setup was absolutely breathtaking. Our guests still talk about the décor and the food!</p>
+            <div class="testi-author">
+              <div class="testi-avatar">P</div>
+              <div>
+                <strong>Priyanka &amp; Debashish Sen</strong>
+                <span>Howrah, 2023</span>
+              </div>
+            </div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+          <div class="testimonial-card" id="testi-3">
+            <div class="testi-quote">"</div>
+            <p class="testi-text">From the first consultation to the last frame of our wedding film, The Film Estate was exceptional. Professional, creative, and deeply passionate about what they do. Highly recommended!</p>
+            <div class="testi-author">
+              <div class="testi-avatar">M</div>
+              <div>
+                <strong>Moumita &amp; Rahul Banerjee</strong>
+                <span>Siliguri, 2024</span>
+              </div>
+            </div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+        </div>
+        <div class="testi-controls">
+          <button class="testi-btn" id="testi-prev" aria-label="Previous testimonial">&#8592;</button>
+          <div class="testi-indicators">
+            <span class="testi-dot active" id="testi-dot-0"></span>
+            <span class="testi-dot" id="testi-dot-1"></span>
+            <span class="testi-dot" id="testi-dot-2"></span>
+          </div>
+          <button class="testi-btn" id="testi-next" aria-label="Next testimonial">&#8594;</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT SECTION ===================== -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info reveal-left">
+          <p class="section-eyebrow" style="justify-content:flex-start;">Get In Touch</p>
+          <h2 class="section-title">Let's Plan Your<br/><em>Perfect Bengali Wedding</em></h2>
+          <p class="contact-desc">Ready to begin your journey? Reach out and let us create the most magical chapter of your love story.</p>
+          <div class="contact-details">
+            <div class="contact-item">
+              <span class="contact-icon">📍</span>
+              <div>
+                <strong>Our Studio</strong>
+                <p>The Film Estate, Park Street Area<br/>Kolkata, West Bengal — 700016</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">📞</span>
+              <div>
+                <strong>Call Us</strong>
+                <p>+91 98300 00000<br/>+91 98765 43210</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">✉️</span>
+              <div>
+                <strong>Email Us</strong>
+                <p>hello@thefilmestate.in<br/>bookings@thefilmestate.in</p>
+              </div>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="#" class="social-link" id="social-instagram" aria-label="Instagram">📸 Instagram</a>
+            <a href="#" class="social-link" id="social-facebook" aria-label="Facebook">📘 Facebook</a>
+            <a href="#" class="social-link" id="social-youtube" aria-label="YouTube">▶️ YouTube</a>
+          </div>
+        </div>
+        <div class="contact-form-wrap reveal-right">
+          <form class="contact-form" id="contactForm" novalidate>
+            <h3>Send Us a Message</h3>
+            <p class="form-tagline">We'll get back to you within 24 hours</p>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="bride-name">Bride's Name</label>
+                <input type="text" id="bride-name" name="brideName" placeholder="Enter bride's name" required />
+              </div>
+              <div class="form-group">
+                <label for="groom-name">Groom's Name</label>
+                <input type="text" id="groom-name" name="groomName" placeholder="Enter groom's name" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="+91 00000 00000" required />
+            </div>
+            <div class="form-group">
+              <label for="wedding-date">Expected Wedding Date</label>
+              <input type="date" id="wedding-date" name="weddingDate" />
+            </div>
+            <div class="form-group">
+              <label for="package-select">Interested Package</label>
+              <select id="package-select" name="package">
+                <option value="">Select a package…</option>
+                <option value="silver">Shubho Aranyo (₹1,50,000+)</option>
+                <option value="gold">Ananda Utsav (₹3,50,000+)</option>
+                <option value="platinum">Rajkeeya Biye (₹7,00,000+)</option>
+                <option value="custom">Custom Package</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Tell Us About Your Dream Wedding</label>
+              <textarea id="message" name="message" rows="4" placeholder="Share your vision, theme, guest count, venue ideas…"></textarea>
+            </div>
+            <button type="submit" class="btn btn-gold btn-full" id="submit-form-btn">
+              <span>Send Enquiry</span>
+              <span class="btn-shimmer"></span>
+            </button>
+            <div class="form-success" id="formSuccess">
+              🎊 Thank you! We'll get back to you within 24 hours!
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="footer-logo">
+              <span class="logo-icon">🎬</span>
+              <div>
+                <span class="logo-main">The Film Estate</span>
+                <span class="logo-sub">Event Management</span>
+              </div>
+            </div>
+            <p class="footer-tagline">Where every Bengali love story becomes a timeless film.</p>
+            <div class="footer-socials">
+              <a href="#" aria-label="Instagram" class="footer-social-btn">IG</a>
+              <a href="#" aria-label="Facebook" class="footer-social-btn">FB</a>
+              <a href="#" aria-label="YouTube" class="footer-social-btn">YT</a>
+            </div>
+          </div>
+          <div class="footer-links-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#gallery">Gallery</a></li>
+              <li><a href="#packages">Packages</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-links-col">
+            <h4>Bengali Packages</h4>
+            <ul>
+              <li><a href="#packages">শুভ অরণ্য Package</a></li>
+              <li><a href="#packages">আনন্দ উৎসব Package</a></li>
+              <li><a href="#packages">রাজকীয় বিয়ে Package</a></li>
+              <li><a href="#contact">Custom Package</a></li>
+            </ul>
+          </div>
+          <div class="footer-links-col">
+            <h4>Bengali Rituals We Cover</h4>
+            <ul>
+              <li>আশীর্বাদ — Ashirbad</li>
+              <li>গায়ে হলুদ — Gaye Holud</li>
+              <li>শুভদৃষ্টি — Shubho Drishti</li>
+              <li>মালা বদল — Mala Badal</li>
+              <li>সপ্তপদী — Saptapadi</li>
+              <li>বৌ ভাত — Bou Bhat</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2025 The Film Estate. All rights reserved. Crafted with ❤️ in Kolkata.</p>
+        <p>Privacy Policy &nbsp;|&nbsp; Terms of Service</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
