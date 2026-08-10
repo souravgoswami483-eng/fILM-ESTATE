@@ -127,33 +127,40 @@ navLinks.querySelectorAll('a').forEach(link => {
   });
 });
 
-// ─── HERO SLIDER ────────────────────────────────
+// ─── HERO VIDEO & SLIDER ─────────────────────────
+const heroVideo = document.querySelector('.hero-video');
+if (heroVideo) {
+  heroVideo.play().catch(() => {});
+}
+
 const slides = document.querySelectorAll('.hero-slide');
 const dots = document.querySelectorAll('.dot');
-let currentSlide = 0;
-let sliderTimer;
+if (slides.length > 0 && dots.length > 0) {
+  let currentSlide = 0;
+  let sliderTimer;
 
-function goToSlide(index) {
-  slides[currentSlide].classList.remove('active');
-  dots[currentSlide].classList.remove('active');
-  currentSlide = (index + slides.length) % slides.length;
-  slides[currentSlide].classList.add('active');
-  dots[currentSlide].classList.add('active');
-}
+  function goToSlide(index) {
+    slides[currentSlide].classList.remove('active');
+    dots[currentSlide].classList.remove('active');
+    currentSlide = (index + slides.length) % slides.length;
+    slides[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
+  }
 
-function startSlider() {
-  sliderTimer = setInterval(() => goToSlide(currentSlide + 1), 5500);
-}
+  function startSlider() {
+    sliderTimer = setInterval(() => goToSlide(currentSlide + 1), 5500);
+  }
 
-dots.forEach((dot, i) => {
-  dot.addEventListener('click', () => {
-    clearInterval(sliderTimer);
-    goToSlide(i);
-    startSlider();
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      clearInterval(sliderTimer);
+      goToSlide(i);
+      startSlider();
+    });
   });
-});
 
-startSlider();
+  startSlider();
+}
 
 // ─── SCROLL REVEAL OBSERVER ──────────────────────
 const revealElements = document.querySelectorAll(
@@ -477,10 +484,10 @@ window.addEventListener('scroll', () => {
   if (!ticking) {
     requestAnimationFrame(() => {
       const scrolled = window.scrollY;
-      const heroSlides = document.querySelectorAll('.hero-slide');
-      heroSlides.forEach(slide => {
-        slide.style.transform = `translateY(${scrolled * 0.25}px)`;
-      });
+      const heroVideo = document.querySelector('.hero-video');
+      if (heroVideo) {
+        heroVideo.style.transform = `translate(-50%, calc(-50% + ${scrolled * 0.25}px))`;
+      }
       ticking = false;
     });
     ticking = true;
